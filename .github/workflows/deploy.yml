@@ -1,0 +1,26 @@
+﻿name: Deploy WordPress Plugin to Hostinger
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy plugin to production
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Upload plugin files to Hostinger
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.HOSTINGER_HOST }}
+          username: ${{ secrets.HOSTINGER_USER }}
+          key: ${{ secrets.HOSTINGER_SSH_KEY }}
+          port: ${{ secrets.HOSTINGER_PORT }}
+          source: "gv-chatbot.php,assets"
+          target: "/home/u248362435/domains/gyvinmobiliaria.com/public_html/wp-content/plugins/gv-chatbot"
+          overwrite: true

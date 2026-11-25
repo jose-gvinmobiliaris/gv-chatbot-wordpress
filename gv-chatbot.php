@@ -113,7 +113,7 @@ function gv_chatbot_render_widget() {
             <div class="chat-welcome">
                 <span class="welcome-icon">GV</span>
                 <h3>¡Hola! Bienvenido</h3>
-                <p>¿En qué podemos ayudarte hoy?</p>
+                <p>Soy el asistente virtual de GV</p>
             </div>
 
             <div
